@@ -1,0 +1,39 @@
+def hitung_nilai_huruf(skor):
+    if skor >= 90 and skor <= 100:
+        nilai_huruf = 'A'
+        predikat = 'Dengan Pujian'
+    elif skor >= 80 and skor <= 89:
+        nilai_huruf = 'B'
+        predikat = 'Sangat Memuaskan'
+    elif skor >= 70 and skor <= 79:
+        nilai_huruf = 'C'
+        predikat = 'Memuaskan'
+    elif skor >= 60 and skor <= 69:
+        nilai_huruf = 'D'
+        predikat = 'Tidak Memuaskan'
+    elif skor >= 0 and skor <= 59:
+        nilai_huruf = 'E'
+        predikat = 'Tidak LULUS'
+    else:
+        return None, None  # Return None for invalid input
+    return nilai_huruf, predikat
+
+def main():
+    while True:
+        try:
+            skor = int(input("Masukkan skor: "))
+            if skor < 0 or skor > 100:
+                raise ValueError
+            else:
+                break
+        except ValueError:
+            print("Masukkan skor yang valid (0-100)!")
+    
+    nilai_huruf, predikat = hitung_nilai_huruf(skor)
+    if nilai_huruf is None:
+        print("Skor tidak valid!")
+    else:
+        print(f"Nilai Huruf: {nilai_huruf}\nPredikat: {predikat}")
+
+if __name__ == "__main__":
+    main()
